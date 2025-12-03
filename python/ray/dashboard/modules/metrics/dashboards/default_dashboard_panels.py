@@ -76,10 +76,10 @@ OVERVIEW_AND_HEALTH_PANELS = [
                 expr='sum(ray_node_mem_used{{instance=~"$Instance",{global_filters}}}) / on() (sum(ray_node_mem_total{{instance=~"$Instance",{global_filters}}})) * 100',
                 legend="Memory (RAM)",
             ),
-            # GRAM
+            # VRAM
             Target(
                 expr='sum(ray_node_gram_used{{instance=~"$Instance",{global_filters}}}) / on() (sum(ray_node_gram_available{{instance=~"$Instance",{global_filters}}}) + sum(ray_node_gram_used{{instance=~"$Instance",{global_filters}}})) * 100',
-                legend="GRAM",
+                legend="VRAM",
             ),
             # Object Store
             Target(
@@ -516,13 +516,13 @@ NODE_HARDWARE_UTILIZATION_PANELS = [
     ),
     Panel(
         id=18,
-        title="Node GPU Memory Usage (GRAM)",
+        title="Node GPU Memory Usage (VRAM)",
         description="The physical (hardware) GPU memory usage for each node. The dotted line means the total amount of GPU memory from the cluster.",
         unit="bytes",
         targets=[
             Target(
                 expr='sum(ray_node_gram_used{{instance=~"$Instance", RayNodeType=~"$RayNodeType", {global_filters}}} * 1024 * 1024) by (instance, RayNodeType, GpuIndex, GpuDeviceName)',
-                legend="Used GRAM: {{instance}} ({{RayNodeType}}), gpu.{{GpuIndex}}, {{GpuDeviceName}}",
+                legend="Used VRAM: {{instance}} ({{RayNodeType}}), gpu.{{GpuIndex}}, {{GpuDeviceName}}",
             ),
             Target(
                 expr='(sum(ray_node_gram_available{{instance=~"$Instance", RayNodeType=~"$RayNodeType", {global_filters}}}) + sum(ray_node_gram_used{{instance=~"$Instance", RayNodeType=~"$RayNodeType", {global_filters}}})) * 1024 * 1024',
@@ -532,13 +532,13 @@ NODE_HARDWARE_UTILIZATION_PANELS = [
     ),
     Panel(
         id=56,
-        title="Node GPU Memory Usage (GRAM) %",
+        title="Node GPU Memory Usage (VRAM) %",
         description="The percentage of physical (hardware) GPU memory usage for each node.",
         unit="%",
         targets=[
             Target(
                 expr='sum(ray_node_gram_used{{instance=~"$Instance", RayNodeType=~"$RayNodeType", {global_filters}}}) by (instance, RayNodeType, GpuIndex, GpuDeviceName) * 100 / (sum(ray_node_gram_available{{instance=~"$Instance", RayNodeType=~"$RayNodeType", {global_filters}}}) by (instance, RayNodeType, GpuIndex, GpuDeviceName) + sum(ray_node_gram_used{{instance=~"$Instance", RayNodeType=~"$RayNodeType", {global_filters}}}) by (instance, RayNodeType, GpuIndex, GpuDeviceName))',
-                legend="Used GRAM: {{instance}} ({{RayNodeType}}), gpu.{{GpuIndex}}, {{GpuDeviceName}}",
+                legend="Used VRAM: {{instance}} ({{RayNodeType}}), gpu.{{GpuIndex}}, {{GpuDeviceName}}",
             ),
         ],
         fill=0,

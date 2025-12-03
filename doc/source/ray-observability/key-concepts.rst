@@ -39,7 +39,7 @@ View :ref:`Monitoring with the CLI or SDK <state-api-overview-ref>` for more det
 
 Metrics
 -------
-Ray collects and exposes the physical stats (e.g., CPU, memory, GRAM, disk, and network usage of each node),
+Ray collects and exposes the physical stats (e.g., CPU, memory, VRAM, disk, and network usage of each node),
 internal stats (e.g., number of Actors in the cluster, number of Worker failures in the Cluster),
 and custom application metrics (e.g., metrics defined by users). All stats can be exported as time series data (to Prometheus by default) and used
 to monitor the Cluster over time.

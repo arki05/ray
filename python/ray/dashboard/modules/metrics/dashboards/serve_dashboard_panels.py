@@ -29,10 +29,10 @@ SERVE_GRAFANA_PANELS = [
                 expr="sum(ray_node_mem_used{{{global_filters}}}) / on() (sum(ray_node_mem_total{{{global_filters}}})) * 100",
                 legend="Memory (RAM)",
             ),
-            # GRAM
+            # VRAM
             Target(
                 expr="sum(ray_node_gram_used{{{global_filters}}}) / on() (sum(ray_node_gram_available{{{global_filters}}}) + sum(ray_node_gram_used{{{global_filters}}})) * 100",
-                legend="GRAM",
+                legend="VRAM",
             ),
             # Object Store
             Target(

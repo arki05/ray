@@ -64,7 +64,7 @@ Additionally, you can specify the following profiling Memray parameters from the
 
 (profiling-gpu)=
 ## GPU profiling
-GPU and GRAM profiling for your GPU workloads like distributed training. This helps you analyze performance and debug memory issues. 
+GPU and VRAM profiling for your GPU workloads like distributed training. This helps you analyze performance and debug memory issues. 
 - PyTorch profiler is supported out of box when used with Ray Train
 - NVIDIA Nsight System is natively supported on Ray.
 

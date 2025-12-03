@@ -122,7 +122,7 @@ def add_lora_layers(unet, text_encoder):
 
 def load_models(config):
     """Load pre-trained Stable Diffusion models."""
-    # Load all models in bfloat16 to save GRAM.
+    # Load all models in bfloat16 to save VRAM.
     # For models that are only used for inferencing,
     # full precision is also not required.
     dtype = torch.bfloat16
@@ -148,7 +148,7 @@ def load_models(config):
     # We are not training VAE part of the model.
     vae.requires_grad_(False)
 
-    # Convert unet to bf16 to save GRAM.
+    # Convert unet to bf16 to save VRAM.
     unet = UNet2DConditionModel.from_pretrained(
         config["model_dir"],
         subfolder="unet",

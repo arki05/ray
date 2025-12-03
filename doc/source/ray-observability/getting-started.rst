@@ -325,7 +325,7 @@ The :ref:`logical resources <logical-resources>` usage.
 .. image:: https://raw.githubusercontent.com/ray-project/Images/master/docs/new-dashboard-v2/dashboard-pics/physical_resource.png
     :align: center
 
-The physical resources (hardware) usage. Ray provides CPU, GPU, Memory, GRAM, disk, and network usage for each machine in a Cluster.
+The physical resources (hardware) usage. Ray provides CPU, GPU, Memory, VRAM, disk, and network usage for each machine in a Cluster.
 
 .. _dash-logs-view:
 
